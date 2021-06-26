@@ -9,10 +9,9 @@ import static org.testng.Assert.assertEquals;
 
 public class Supplier_TestCase {
    LoginPage loginPage = new LoginPage();
-   BrowserUtility utilities = new BrowserUtility();
    SupplierDashboardPage supplierBoard = new SupplierDashboardPage();
    @Test
-   public void supplierLogin() throws InterruptedException {
+   public void supplierLogin() {
       Driver.getDriver().get(ConfigurationReader.getProperty("supplier_url"));
       loginPage.login(ConfigurationReader.getProperty("supplier_user")
       ,ConfigurationReader.getProperty("supplier_pswd"));
