@@ -2,11 +2,12 @@ package PageObject;
 
 import MyUtil.ConfigurationReader;
 import MyUtil.Driver;
+import TestCases.AdminTest_Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends AdminTest_Base {
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -18,11 +19,11 @@ public class LoginPage {
     @FindBy (xpath = "//button[@type='submit']")
     WebElement btn_Submit;
 
-    public void login() {
+    public void login(String user, String pswd) {
         input_Email.clear();
-        input_Email.sendKeys(ConfigurationReader.getProperty("admin_user"));
+        input_Email.sendKeys(user);
         input_Password.clear();
-        input_Password.sendKeys(ConfigurationReader.getProperty("admin_pswd"));
+        input_Password.sendKeys(pswd);
         btn_Submit.click();
     }
 

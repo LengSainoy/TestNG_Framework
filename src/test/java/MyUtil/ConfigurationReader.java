@@ -8,7 +8,7 @@ public class ConfigurationReader {
 
     static {
         try {
-            String path = "src/test/resources/com.techcircle/configuration.properties";
+            String path = "src/test/resources/com/techcircle/configuration.properties";
             FileInputStream input = new FileInputStream(path);
             configFile = new Properties();
             configFile.load(input);
