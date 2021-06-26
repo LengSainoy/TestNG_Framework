@@ -1,24 +1,27 @@
 package TestCases;
 
 import MyUtil.*;
-import PageObject.LoginPage;
-import PageObject.SupplierDashboardPage;
+import PageObject.*;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class Supplier_TestCase {
+@Listeners(ListenerTestNG.class)
+public class Supplier_TestCase extends SupplierTest_Base {
    LoginPage loginPage = new LoginPage();
+   DashboardPage dashboardPage = new DashboardPage();
    SupplierDashboardPage supplierBoard = new SupplierDashboardPage();
+
    @Test
-   public void supplierLogin() {
+   public void php201() {
       Driver.getDriver().get(ConfigurationReader.getProperty("supplier_url"));
       loginPage.login(ConfigurationReader.getProperty("supplier_user")
-      ,ConfigurationReader.getProperty("supplier_pswd"));
+         , ConfigurationReader.getProperty("supplier_pswd"));
 
       String actualDashBoardTitle = supplierBoard.header_Dashboard.getText();
       String expectedDashBoardTitle = "DASHBOARD";
-      assertEquals(actualDashBoardTitle, expectedDashBoardTitle );
+      assertEquals(actualDashBoardTitle, expectedDashBoardTitle);
 
       String actualDashBoardTab = supplierBoard.sidetab_Dashboard.getText();
       String expectedDashBoardTab = "DASHBOARD";
@@ -34,11 +37,13 @@ public class Supplier_TestCase {
 
       String actualBookingsTab = supplierBoard.sidetab_Booking.getText();
       String expectedBookingsTab = "BOOKINGS";
-      assertEquals( actualBookingsTab, expectedBookingsTab);
+      assertEquals(actualBookingsTab, expectedBookingsTab);
 
       String actualWidgetsTab = supplierBoard.sidetab_Widgets.getText();
       String expectedWidgetsTab = "WIDGETS";
       assertEquals(actualWidgetsTab, expectedWidgetsTab);
+
+      dashboardPage.signOutBtn.click();
    }
 
 }

@@ -14,5 +14,7 @@ public class DashboardPage extends AdminTest_Base {
    public WebElement accountButton;
    @FindBy(xpath = "//ul[@id='ACCOUNTS']/li[1]")
    public WebElement adminsButton;
+   @FindBy(css = "i.fa.fa-sign-out")
+   public WebElement signOutBtn;
 
 }

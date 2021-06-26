@@ -15,6 +15,8 @@ public class AdminPage extends AdminTest_Base {
 
    @FindBy(xpath = "//form//button[@type='submit']")
    public WebElement addButton;
-   @FindBy(xpath = "//table//tbody//tr//td[3]")
+   @FindBy(xpath = "//table//tr[1]/td[3]")
    public WebElement verifyAddName;
+   @FindBy(xpath = "//table//tr[1]/td[5]")
+   public WebElement verifyEmail;
 }
