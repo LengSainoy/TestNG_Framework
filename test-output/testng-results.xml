@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-05-25T01:14:27 EDT" name="Default Suite" finished-at="2021-05-25T01:14:37 EDT" duration-ms="10561">
+    <groups>
+    </groups>
+    <test started-at="2021-05-25T01:14:27 EDT" name="PHPTravelWebSite" finished-at="2021-05-25T01:14:37 EDT" duration-ms="10561">
+      <class name="TestCases.SearchOutDoorLight">
+        <test-method is-config="true" signature="init()[pri:0, instance:TestCases.SearchOutDoorLight@3aacf32a]" started-at="2021-05-25T01:14:27 EDT" name="init" finished-at="2021-05-25T01:14:28 EDT" duration-ms="1531" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="SearchCheapestOutdoorLight()[pri:0, instance:TestCases.SearchOutDoorLight@3aacf32a]" started-at="2021-05-25T01:14:28 EDT" name="SearchCheapestOutdoorLight" finished-at="2021-05-25T01:14:37 EDT" duration-ms="9003" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchCheapestOutdoorLight -->
+      </class> <!-- TestCases.SearchOutDoorLight -->
+    </test> <!-- PHPTravelWebSite -->
+  </suite> <!-- Default Suite -->
+</testng-results>
