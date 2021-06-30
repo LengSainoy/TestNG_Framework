@@ -38,7 +38,7 @@ public class BrowserUtility {
         Driver.getDriver().switchTo().window(origin);
     }
     public static void switchToWindow(Integer tab) {
-        ArrayList<String> tabs = new ArrayList<String>(Driver.getDriver().getWindowHandles());
+        ArrayList<String> tabs = new ArrayList<>(Driver.getDriver().getWindowHandles());
         try {
             Driver.getDriver().switchTo().window(tabs.get(tab));
         }

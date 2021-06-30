@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Lengg/IdeaProjects/TestNG_Framework">
+        <classes>
+            <class name="TestCases.Admin_TestCase">
+                <methods>
+                    <include name="php101"/>
+                    <include name="php102"/>
+                    <include name="php103"/>
+                </methods>
+            </class>
+            <class name="TestCases.Supplier_TestCase">
+                <methods>
+                    <include name="php201"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

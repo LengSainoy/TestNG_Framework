@@ -1,15 +1,13 @@
 package PageObject;
 
-import MyUtil.ConfigurationReader;
-import MyUtil.Driver;
-import TestCases.AdminTest_Base;
+import TestCases.BaseClass;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends AdminTest_Base {
+public class LoginPage extends BaseClass {
     public LoginPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
+        PageFactory.initElements(getDriver(), this);
     }
     //Store locator of each page here
     @FindBy (xpath = "//label/input[@name='email']")

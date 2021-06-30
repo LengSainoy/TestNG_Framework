@@ -1,31 +1,29 @@
 package PageObject;
 
-import MyUtil.Driver;
-import TestCases.SupplierTest_Base;
+import TestCases.BaseClass;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
-public class SupplierDashboardPage extends SupplierTest_Base {
+import java.util.List;
+
+public class SupplierDashboardPage extends BaseClass {
    public SupplierDashboardPage() {
-      PageFactory.initElements(Driver.getDriver(), this);
+      PageFactory.initElements(getDriver(), this);
    }
+
    // Store locator of each page here.
-   @FindBy(xpath = "//a[@href=\"https://www.phptravels.net/supplier\"]")
-   public WebElement sidetab_Dashboard;
-   @FindBy(xpath = "/html/body/div[3]/nav/div[2]/ul/li[2]/a")
-   public WebElement sidetab_Tours;
-   @FindBy(xpath = "/html/body/div[3]/nav/div[2]/ul/li[2]/ul/li[1]/a")
-   public WebElement subtab_ManageTours;
-   @FindBy(xpath = "/html/body/div[3]/nav/div[2]/ul/li[3]/a")
-   public WebElement sidetab_Locations;
-   @FindBy(xpath="/html/body/div[3]/nav/div[2]/ul/li[3]/ul/li/a")
-   public WebElement subtab_Locations;
-   @FindBy(xpath = "/html/body/div[3]/nav/div[2]/ul/li[4]/a")
-   public WebElement sidetab_Booking;
-   @FindBy(xpath = "/html/body/div[3]/nav/div[2]/ul/li[5]/a")
-   public WebElement sidetab_Widgets;
+   @FindBy(xpath = "//ul[@id='social-sidebar-menu']/li")
+   List<WebElement> sidetab_Menus;
+
    @FindBy(linkText = "DASHBOARD")
    public WebElement header_Dashboard;
+
+   public void verifySideTabMenus(List<String> expectedList) {
+      for (int i = 0; i < sidetab_Menus.size(); i++) {
+         Assert.assertTrue(sidetab_Menus.get(i).getText().contains(expectedList.get(i)));
+      }
+   }
 }
 

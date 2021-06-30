@@ -12,34 +12,35 @@ import java.util.concurrent.TimeUnit;
 
 public class Driver {
     private static WebDriver driver;
+
     private Driver() {
 
     }
 
-    public static WebDriver getDriver() {
+    protected static final WebDriver getDriver() {
         if (driver == null) {
             String browser = System.getProperty("browser") != null ?
                     System.getProperty("browser") :
                     ConfigurationReader.getProperty("browser");
             switch (browser) {
-                case "firefox" -> {
+                case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
-                }
-                case "chrome" -> {
+                    break;
+                case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
-                }
-                case "edge" -> {
+                    break;
+                case "edge":
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
-                }
-                case "headless" -> {
+                    break;
+                case "headless":
                     DesiredCapabilities caps = new DesiredCapabilities();
                     caps.setJavascriptEnabled(true);
                     WebDriverManager.phantomjs().setup();
                     driver = new PhantomJSDriver(caps);
-                }
+                    break;
             }
         }
         driver.manage().window().maximize();
@@ -47,11 +48,7 @@ public class Driver {
         return driver;
     }
 
-    public static void get(String url) {
-        getDriver().get(url);
-    }
-
-    public static void closeDriver() {
+    public static final void closeDriver() {
         if (driver != null) {
             driver.quit();
             driver = null;
